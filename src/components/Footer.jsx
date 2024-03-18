@@ -50,11 +50,11 @@ const Footer = () => {
               </div>
               <div className="flex gap-1">
                 <img src={doubleArrow} alt="" />
-                <p className="text-sm">Testimonials</p>
+                <p className="text-[10px] md:text-sm">Testimonials</p>
               </div>
               <div className="flex gap-1">
                 <img src={doubleArrow} alt="" />
-                <p className="text-sm">Terms and Conditions</p>
+                <p className="text-[10px] md:text-sm">Terms and Conditions</p>
               </div>
             </div>
           </div>
@@ -63,11 +63,11 @@ const Footer = () => {
             <div className="grid items-start gap-4">
               <div className="flex gap-1">
                 <img src={doubleArrow} alt="" />
-                <p className="text-sm">Contact Us</p>
+                <p className="text-[10px] md:text-sm">Contact Us</p>
               </div>
               <div className="flex gap-1">
                 <img src={doubleArrow} alt="" />
-                <p className="text-sm">Upload Receipt</p>
+                <p className="text-[10px] md:text-sm">Upload Receipt</p>
               </div>
             </div>
           </div>
@@ -76,11 +76,11 @@ const Footer = () => {
             <div className="grid items-start gap-4">
               <div className="flex gap-1">
                 <img src={tele} alt="" />
-                <p className="text-sm">09146273838</p>
+                <p className="text-[10px] md:text-sm">09146273838</p>
               </div>
               <div className="flex gap-1">
                 <img src={mail} alt="" />
-                <p className="text-sm">storeguard@gmail.com</p>
+                <p className="text-[10px] md:text-sm">storeguard@gmail.com</p>
               </div>
             </div>
           </div>

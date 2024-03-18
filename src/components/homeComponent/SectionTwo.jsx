@@ -111,7 +111,7 @@ const SectionTwo = () => {
             <div className="flex flex-col gap-4 bg-gradient-to-r from-[#0E306D] to-[#901216] p-2 md:p-6 rounded-lg">
                 {faqData.map((faq, index) => (
                 <div key={index} className="flex justify-between items-center pb-1 border-white border-b-2">
-                    <p className="text-white font-[poppins] text-xs md:text-xl">{faq.question}</p>
+                    <p className="text-white font-[poppins] text-[10px] md:text-xl">{faq.question}</p>
                     <div className="bg-[#BF1212] rounded-[50%] p-1 cursor-pointer">
                     <img src={arrowDown} alt="" />
                     </div>
