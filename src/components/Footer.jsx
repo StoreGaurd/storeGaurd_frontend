@@ -18,7 +18,7 @@ const Footer = () => {
         </div>
         <div className="w-full md:w-[40%] text-center md:text-start">
           <p className="text-white text-xl md:text-2xl font-semibold">Subscribe To Our Newsletter</p>
-          <p className="text-white text-sm mb-4">Be The First To Know About Updates And Trends!</p>
+          <p className="text-white text-sm mb-4 text-semibold">Be The First To Know About Updates And Trends!</p>
           <div className="relative flex justify-center items-center">
             <input type="text" placeholder="Enter your email address" className="bg-white w-full px-3 py-4  rounded-md"/>
             <button className="absolute right-2 cursor-pointer py-3 px-4 text-[#fff] bg-[#FF8D22] rounded-xl text-sm font-semibold">Subscribe</button>
@@ -46,7 +46,7 @@ const Footer = () => {
             <div className="grid items-start gap-4">
               <div className="flex gap-1">
                 <img src={doubleArrow} alt="" />
-                <p className="text-sm">About Us</p>
+                <p className="text-[10px] md:text-sm">About Us</p>
               </div>
               <div className="flex gap-1">
                 <img src={doubleArrow} alt="" />
@@ -72,7 +72,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="text-white">
-            <p className="text-xl font-semibold mb-4 text-start">Contact Us</p>
+            <p className="text-xl font-semibold mb-4 text-start" id="contact">Contact Us</p>
             <div className="grid items-start gap-4">
               <div className="flex gap-1">
                 <img src={tele} alt="" />

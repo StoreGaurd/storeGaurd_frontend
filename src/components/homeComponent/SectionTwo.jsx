@@ -7,12 +7,22 @@ import featureTwo from "../../utils/images/featureTwo.png"
 import featureThree from "../../utils/images/featureThree.png"
 import rock from '../../utils/images/rock.png';
 import topSun from '../../utils/images/topSun.png';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const SectionTwo = () => {
+    const [visibleAnswers, setVisibleAnswers] = useState({})
+
+    const handleDropdown = (index) => {
+        setVisibleAnswers((prev) => ({
+            ...prev,
+            [index]: !prev[index], 
+        }));
+    }
   return (
     <>
         {/* about section */}
-        <div className="text-center py-5 md:py-10 md:px-5 lg:px-24">
+        <div className="text-center py-5 md:py-10 md:px-5 lg:px-24" id='about'>
             <p className="text-white text-3xl md:text-4xl font-semibold mb-4">About Us</p>
             <div className="flex items-center bg-[image:var(--image-url)] bg-center px-10 text-xl font-semibold text-white h-[350px] md:h-[250px]" style={{'--image-url': `url(${aboutImg})` }}><p>StoreGuard offers a groundbreaking solution to help people store, manage and retrieve their receipts efficiently. With its decentralized architecture and innovative features, we set the standard for the safety of your receipts in this digital age.</p></div>
         </div>
@@ -41,7 +51,9 @@ const SectionTwo = () => {
                         <p className="text-sm leading-[20px] text-white">This feature helps you to manage your receipts efficiently with features such as categorization, tagging, and searching. You can easily organize and locate your receipt with ease.</p>
                     </div>
                 </div>
-                <button className="cursor-pointer py-3 px-10 text-[#fff] bg-[#FF8D22] rounded-xl text-sm font-semibold">Learn more</button>
+                <button className="cursor-pointer py-3 px-10 text-[#fff] bg-[#FF8D22] rounded-xl text-sm font-semibold">
+                    <Link to='/register'>Learn more</Link>
+                </button>
             </div>
         </div>
         {/*why choose us section */}
@@ -64,7 +76,9 @@ const SectionTwo = () => {
             <p className="text-white text-3xl md:text-4xl font-semibold mb-4">Integration</p>
             <div className="px-4 md:px-16 lg:px-24 py-4 md:h-[300px] flex flex-col justify-center items-center gap-6 bg-slate-900 bg-opacity-40 rounded-lg shadow-md">
                 <p className="text-white text-xl text-start">seamless connection to decentralized storage platforms like DIDs and VCs for secure receipt upload and storage. The integration of blockchain technology for timestamping receipts to ensure data immutability and transparency in receipt management. </p>
-                <button className="cursor-pointer py-3 px-10 text-[#fff] bg-[#FF8D22] rounded-xl text-sm font-semibold">Get Started</button>
+                <button className="cursor-pointer py-3 px-10 text-[#fff] bg-[#FF8D22] rounded-xl text-sm font-semibold">
+                    <Link to='/register'>Get Started</Link>
+                </button>
             </div>
         </div>
         {/* testimonials section*/}
@@ -110,11 +124,14 @@ const SectionTwo = () => {
             <p className="text-white text-2xl md:text-3xl mb-4">See Frequently Asked Questions</p>
             <div className="flex flex-col gap-4 bg-gradient-to-r from-[#0E306D] to-[#901216] p-2 md:p-6 rounded-lg">
                 {faqData.map((faq, index) => (
-                <div key={index} className="flex justify-between items-center pb-1 border-white border-b-2">
-                    <p className="text-white font-[poppins] text-[10px] md:text-xl">{faq.question}</p>
-                    <div className="bg-[#BF1212] rounded-[50%] p-1 cursor-pointer">
-                    <img src={arrowDown} alt="" />
+                <div key={index} className="flex flex-col">
+                    <div className='flex justify-between items-center pb-1 border-white border-b-2'>
+                        <p className="text-white text-xs md:text-xl">{faq.question}</p>
+                        <div className="bg-[#BF1212] rounded-[50%] p-1 cursor-pointer" onClick={() => handleDropdown(index)}>
+                            <img src={arrowDown} alt="" className={visibleAnswers[index] ? '-rotate-180' : ''}/>
+                        </div>
                     </div>
+                    {visibleAnswers[index] && ( <p className='text-white text-xs md:text-xl bg-[#222] text-start pt-2 pb-6 px-2'>{faq.answer}</p>)}
                 </div>
                 ))}
             </div>

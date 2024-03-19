@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import storeGaurdIcon from "../utils/icons/storegaurd.png"
+import { Link} from 'react-router-dom'
+import { HashLink } from "react-router-hash-link"
 
 const DesktopHeader = () => {
   const history = useNavigate()
@@ -14,49 +16,55 @@ const DesktopHeader = () => {
   return (
     <div className="flex justify-between py-4 px-2 md:px-5 lg:px-20">
       <div
-        onClick={() => history('/')}
         className="flex items-center cursor-pointer"
       >
-        <div className="flex justify-center items-center gap-2">
-          <img src={storeGaurdIcon} className=''/>
-          <p className="text-white font-semibold text-xl">
-            <span className='oldEnglish'>Store</span><span className='Jacques'>Gaurd</span>
-          </p>
-        </div>
+        <Link to='/'>
+          <div className="flex justify-center items-center gap-2">
+            <img src={storeGaurdIcon} className=''/>
+            <p className="text-white font-semibold text-xl">
+              <span className='oldEnglish'>Store</span><span className='Jacques'>Gaurd</span>
+            </p>
+          </div>
+        </Link>
       </div>
 
       <div className="hidden md:flex items-center gap-6 font-normal">
         <div className="flex items-center gap-7">
           <p
-            onClick={() => history('/about')}
-            className="text-white cursor-pointer border-b-2 border-[#FF8D22]"
+            className="text-white cursor-pointer hover:text-[#FF8D22]"
           >
-            Home
+            <Link to="/">
+              Home
+            </Link>
           </p>
           <p
-            onClick={() => history('/contact')}
-            className="text-white cursor-pointer"
+            className="text-white cursor-pointer hover:text-[#FF8D22]"
           >
-            Receipt Upload
+            <Link to='/signin'>
+              Receipt Upload
+            </Link>
           </p>
           <p
-            onClick={() => history('/contact')}
-            className="text-white cursor-pointer"
+            className="text-white cursor-pointer hover:text-[#FF8D22]"
           >
-            About Us
+            <HashLink smooth to='/#about'>
+              About Us
+            </HashLink>
           </p>
           <p
-            onClick={() => history('/contact')}
-            className="text-white cursor-pointer"
+            className="text-white cursor-pointer hover:text-[#FF8D22]"
           >
-            Contact Us
+            <HashLink smooth to='/#contact'>
+              Contact Us
+            </HashLink>
           </p>
           {access_token && (
             <p
-              onClick={() => history('/dashboard')}
-              className="text-white cursor-pointer"
+              className="text-white cursor-pointer hover:text-[#FF8D22]"
             >
-              Dashboard
+              <Link to='/dashbord'>
+                Dashboard
+              </Link>
             </p>
           )}
         </div>
@@ -69,10 +77,11 @@ const DesktopHeader = () => {
           </p>
         ) : (
           <p
-            onClick={() => history('/login')}
             className="cursor-pointer py-3 px-10 text-[#fff] bg-[#FF8D22] rounded-xl text-sm font-semibold"
           >
-            Register
+            <Link to='/register'>
+              Register
+            </Link>
           </p>
         )}
       </div>

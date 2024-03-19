@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import storeGaurdIcon from '../utils/icons/storegaurd.png'
+import { HashLink } from "react-router-hash-link"
 
 const Header = () => {
   const history = useNavigate()
@@ -67,33 +68,33 @@ const Header = () => {
         {isOpen && (
           <div className=" w-48 bg-[#fff] rounded-md shadow-lg  top-8 right-2 h-96 z-10 absolute">
             <ul className="w-full h-full flex flex-col items-center justify-center gap-10">
-              <li className="text-[#000] font-medium max-[600px]:text-base border-b-2 border-[#FF8D22]">
-                <Link to="/pricing">Home</Link>
+              <li className="text-[#000] font-medium max-[600px]:text-base hover:text-[#FF8D22]">
+                <Link to="/">Home</Link>
               </li>
-              <li className="text-[#000] font-medium max-[600px]:text-base">
-                <Link to="/pricing">Receipt Upload</Link>
+              <li className="text-[#000] font-medium max-[600px]:text-base hover:text-[#FF8D22]">
+                <Link to="/signin">Receipt Upload</Link>
               </li>
-              <li className="text-[#000] font-medium max-[600px]:text-base">
-                <Link to="/pricing">About Us</Link>
+              <li className="text-[#000] font-medium max-[600px]:text-base hover:text-[#FF8D22]">
+                <HashLink smooth to="/#about">About Us</HashLink>
               </li>
-              <li className="text-[#000] font-medium max-[600px]:text-base">
-                <Link to="/pricing">Contact Us</Link>
+              <li className="text-[#000] font-medium max-[600px]:text-base hover:text-[#FF8D22]">
+                <HashLink to="/#contact">Contact Us</HashLink>
               </li>
               {access_token && (
                 <li
                   onClick={handleSignout}
-                  className="text-[#000] font-medium max-[600px]:text-base"
+                  className="text-[#000] font-medium max-[600px]:text-base hover:text-[#FF8D22]"
                 >
-                  <p>Dashboard</p>
+                  <p>Sign Out</p>
                 </li>
               )}
               {access_token ? (
                 <li className="font-medium max-[600px]:text-base rounded-md border text-white hover:text-[#000] hover:bg-white bg-[#FF8D22] duration-500 transition-all px-6 py-2">
-                  <Link to="/dashboard">Sign out</Link>
+                  <Link to="/dashboard">Dashboard</Link>
                 </li>
               ) : (
                 <li className="font-medium max-[600px]:text-base rounded-md border text-white hover:text-[#000] hover:bg-white bg-[#FF8D22] duration-500 transition-all px-6 py-2">
-                  <Link to="/signin">Register</Link>
+                  <Link to="/register">Register</Link>
                 </li>
                )} 
 
