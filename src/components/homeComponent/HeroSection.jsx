@@ -9,7 +9,7 @@ const HeroSection = () => {
                 <p className="font-semibold text-4xl md:text-[50px] my-6 leading-[50px] md:leading-[76px]">Your Secure Receipt <br/>Management Solution</p>
                 <p className="font-normal mb-6">Store, organize and retrieve your receipts effortlessly with us.</p>
                 <button className="cursor-pointer py-3 px-10 bg-[#FF8D22] rounded-xl text-sm font-semibold"> 
-                    <Link to='/register'>Get Started</Link>
+                    <Link to='/dashboard'>Get Started</Link>
                 </button>
             </div>
             <div className='mb-8'>

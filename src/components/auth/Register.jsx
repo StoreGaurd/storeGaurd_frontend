@@ -1,27 +1,11 @@
-import { useEffect } from 'react'
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import storeGaurdIcon from '../../utils/icons/storegaurd.png'
 import { Link } from 'react-router-dom'
+import SignIn from './SignIn';
 
 const Register = () => {
 
-    const handleCallbackResponse = (response) =>{
-        console.log('google response', response.credentials)
-    } 
-
-    useEffect(()=>{
-        /* global google */
-        google.accounts.id.initialize({
-            client_id: "674864356084-nro7otb59q30qj43o507679uhbdb6s9k.apps.googleusercontent.com", 
-            callback: handleCallbackResponse
-        })
-
-        google.accounts.id.renderButton(
-            document.getElementById('signinDiv'), 
-            {theme: "outline", size: "large"}
-
-        )
-
-    }, [])
+   
   return (
     <div className='flex'>
       <div className="registration flex justify-center items-center h-[90vh] w-1/2">
@@ -44,6 +28,9 @@ const Register = () => {
             </div>
         </div>
       </div>
+        <GoogleOAuthProvider clientId="674864356084-nro7otb59q30qj43o507679uhbdb6s9k.apps.googleusercontent.com">
+            <SignIn/>
+        </GoogleOAuthProvider>
         <div className='w-1/2 bg-white'>
             <div id='signinDiv'></div>
         </div>

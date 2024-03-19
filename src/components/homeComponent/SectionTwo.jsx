@@ -52,7 +52,7 @@ const SectionTwo = () => {
                     </div>
                 </div>
                 <button className="cursor-pointer py-3 px-10 text-[#fff] bg-[#FF8D22] rounded-xl text-sm font-semibold">
-                    <Link to='/register'>Learn more</Link>
+                    <Link to='/dashboard'>Learn more</Link>
                 </button>
             </div>
         </div>
@@ -77,7 +77,7 @@ const SectionTwo = () => {
             <div className="px-4 md:px-16 lg:px-24 py-4 md:h-[300px] flex flex-col justify-center items-center gap-6 bg-slate-900 bg-opacity-40 rounded-lg shadow-md">
                 <p className="text-white text-xl text-start">seamless connection to decentralized storage platforms like DIDs and VCs for secure receipt upload and storage. The integration of blockchain technology for timestamping receipts to ensure data immutability and transparency in receipt management. </p>
                 <button className="cursor-pointer py-3 px-10 text-[#fff] bg-[#FF8D22] rounded-xl text-sm font-semibold">
-                    <Link to='/register'>Get Started</Link>
+                    <Link to='/dashboard'>Get Started</Link>
                 </button>
             </div>
         </div>

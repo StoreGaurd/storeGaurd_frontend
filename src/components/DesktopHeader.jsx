@@ -40,7 +40,7 @@ const DesktopHeader = () => {
           <p
             className="text-white cursor-pointer hover:text-[#FF8D22]"
           >
-            <Link to='/signin'>
+            <Link to='/dashboard'>
               Receipt Upload
             </Link>
           </p>
@@ -79,7 +79,7 @@ const DesktopHeader = () => {
           <p
             className="cursor-pointer py-3 px-10 text-[#fff] bg-[#FF8D22] rounded-xl text-sm font-semibold"
           >
-            <Link to='/register'>
+            <Link to='/dashboard'>
               Register
             </Link>
           </p>

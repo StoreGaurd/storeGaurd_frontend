@@ -1,9 +1,19 @@
-const SignIn = () => {
-  return (
-    <div>
-      sign in
-    </div>
-  )
-}
+import { GoogleLogin } from '@react-oauth/google';
 
-export default SignIn
+function SignIn() {
+    const responseMessage = (response) => {
+        console.log(response);
+    };
+    const errorMessage = (error) => {
+        console.log(error);
+    };
+    return (
+        <div>
+            <h2>React Google Login</h2>
+            <br />
+            <br />
+            <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
+        </div>
+    )
+}
+export default SignIn;

@@ -72,7 +72,7 @@ const Header = () => {
                 <Link to="/">Home</Link>
               </li>
               <li className="text-[#000] font-medium max-[600px]:text-base hover:text-[#FF8D22]">
-                <Link to="/signin">Receipt Upload</Link>
+                <Link to="/dashboard">Receipt Upload</Link>
               </li>
               <li className="text-[#000] font-medium max-[600px]:text-base hover:text-[#FF8D22]">
                 <HashLink smooth to="/#about">About Us</HashLink>
@@ -94,7 +94,7 @@ const Header = () => {
                 </li>
               ) : (
                 <li className="font-medium max-[600px]:text-base rounded-md border text-white hover:text-[#000] hover:bg-white bg-[#FF8D22] duration-500 transition-all px-6 py-2">
-                  <Link to="/register">Register</Link>
+                  <Link to="/dashboard">Register</Link>
                 </li>
                )} 
 
