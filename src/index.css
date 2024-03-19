@@ -20,4 +20,9 @@ body{
 .linear{
     background: rgba(255, 255, 255, 0.2);
 }
+.registration{
+    background: url(./utils/images/signupImg.png);
+    background-position: center;
+    background-size: cover;
+}
 
