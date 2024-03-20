@@ -8,18 +8,15 @@ import overview from "../utils/icons/overview.png"
 import reciept from "../utils/icons/reciept.png"
 import files from "../utils/icons/files.png"
 import settings from '../utils/icons/settings.png'
-import largelogo from '../utils/icons/largelogo.png'
 import arrowDown from '../utils/icons/arrowDown.png'
 
 const MobileDashboardLayout = ({children}) => {
   const [showFilesContent, setShowFilesContent] = useState(false)
   const [showRecieptContent, setShowRecieptContent] = useState(false)
-  const [isOpen, setIsOpen] = useState(false)
   const [viewProfile, setViewProfile] = useState(false)
   const [isNavOpen, setIsNavbarOpen] = useState(false)
 
   const toggleDropdown = () => {
-    setIsOpen(!isOpen)
     setIsNavbarOpen(!isNavOpen)
   }
 
@@ -46,7 +43,7 @@ const MobileDashboardLayout = ({children}) => {
             className="hidden max-[768px]:inline text-2xl left-3 bottom-1rem text-[#222] cursor-pointer max-[768px]:text-xl"
             onClick={toggleDropdown}
           >
-            {isOpen ? (
+            {isNavOpen ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -97,9 +94,9 @@ const MobileDashboardLayout = ({children}) => {
             </div>
         </div>
     )}{isNavOpen && (
-      <div className='absolute flex flex-col items-center justify-between bg-[#131021] pt-10 shadow-sm md:w-[30%] lg:w-[20%] h-[90vh] z-10'>
+      <div className='absolute flex flex-col items-center justify-between bg-[#131021] pt-10 px-6 shadow-sm md:w-[30%] lg:w-[20%] h-[90vh] z-10'>
         <div className='flex flex-col items-start justify-center gap-10'>
-          <Link to="/dashboard">
+          <Link to="/dashboard" onClick={()=>setIsNavbarOpen(false)}>
             <div className='flex items-center justify-center gap-4 cursor-pointer'>
               <img src={overview} alt="" className='w-6 h-6' />
               <p className='text-xl text-[#FF8D22]'>Overview</p>
@@ -137,7 +134,6 @@ const MobileDashboardLayout = ({children}) => {
               <p className='text-xl text-white'>Settings</p>
           </div>
         </div>
-        <img src={largelogo} alt="" />
       </div>
     )}
     <div className='flex item-center h-[90vh]'>
