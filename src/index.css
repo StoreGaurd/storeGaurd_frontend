@@ -25,4 +25,8 @@ body{
     background-position: center;
     background-size: cover;
 }
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
 
