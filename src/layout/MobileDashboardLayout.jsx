@@ -1,7 +1,6 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import storeGaurdIcon from '../utils/icons/storegaurd.png'
-import search from "../utils/icons/searchIcon.png"
 import dummy from "../utils/icons/dummy.png"
 import notification from "../utils/icons/notification.png"
 import overview from "../utils/icons/overview.png"
@@ -9,12 +8,22 @@ import reciept from "../utils/icons/reciept.png"
 import files from "../utils/icons/files.png"
 import settings from '../utils/icons/settings.png'
 import arrowDown from '../utils/icons/arrowDown.png'
+import logoutIcon from '../utils/icons/logout.png'
+import  UseClickAway  from '../common/UseClickAway'
 
 const MobileDashboardLayout = ({children}) => {
   const [showFilesContent, setShowFilesContent] = useState(false)
   const [showRecieptContent, setShowRecieptContent] = useState(false)
   const [viewProfile, setViewProfile] = useState(false)
   const [isNavOpen, setIsNavbarOpen] = useState(false)
+  const sidebarRef = useRef(null)
+  const hambugerRef = useRef(null)
+  const dummyRef = useRef(null);
+  const profileRef = useRef(null);
+  const excludedRefs = [dummyRef, hambugerRef];
+
+  UseClickAway(profileRef, () => setViewProfile(false), excludedRefs);
+  UseClickAway(sidebarRef, () => setIsNavbarOpen(false), excludedRefs);
 
   const toggleDropdown = () => {
     setIsNavbarOpen(!isNavOpen)
@@ -41,7 +50,7 @@ const MobileDashboardLayout = ({children}) => {
           </Link>
           <button
             className="hidden max-[768px]:inline text-2xl left-3 bottom-1rem text-[#222] cursor-pointer max-[768px]:text-xl"
-            onClick={toggleDropdown}
+            onClick={toggleDropdown} ref={hambugerRef}
           >
             {isNavOpen ? (
               <svg
@@ -77,13 +86,12 @@ const MobileDashboardLayout = ({children}) => {
           </button>
         </div>
         <div className='flex justify-center items-center gap-6'>
-          <img src={search} alt="" className='cursor-pointer' />
           <img src={notification} alt="" className='cursor-pointer' />
-          <img src={dummy} alt="" className='cursor-pointer w-10 h-10' onClick={openProfileContent} />
+          <img src={dummy} alt="" className='cursor-pointer w-10 h-10' onClick={openProfileContent} ref={dummyRef} />
         </div>
     </div>
     {viewProfile && 
-        (<div className='text-[poppins] absolute top-[10vh] right-4 py-2 flex flex-col items-center justify-center gap-6 w-[200px] shadow-lg rounded-md z-10 bg-white'>
+        (<div ref={profileRef} className='text-[poppins] absolute top-[10vh] right-4 py-2 flex flex-col items-center justify-center gap-6 w-[200px] shadow-lg rounded-md z-10 bg-white'>
             <img src={dummy} alt="" className='cursor-pointer' />
             <p className='text-xs font-bold'>Mary Daniels</p>
             <p className='text-[10px]'>Imachristt328@gmail.com</p>
@@ -94,7 +102,7 @@ const MobileDashboardLayout = ({children}) => {
             </div>
         </div>
     )}{isNavOpen && (
-      <div className='absolute flex flex-col items-center justify-between bg-[#131021] pt-10 px-6 shadow-sm md:w-[30%] lg:w-[20%] h-[90vh] z-10'>
+      <div ref={sidebarRef} className='absolute flex flex-col items-center justify-between bg-[#131021] pt-10 px-6 shadow-sm md:w-[30%] lg:w-[20%] h-[90vh] z-10'>
         <div className='flex flex-col items-start justify-center gap-10'>
           <Link to="/dashboard" onClick={()=>setIsNavbarOpen(false)}>
             <div className='flex items-center justify-center gap-4 cursor-pointer'>
@@ -110,8 +118,8 @@ const MobileDashboardLayout = ({children}) => {
             </div>
             {showRecieptContent && (
                 <div className='text-white flex flex-col gap-3 mt-3'>
-                    <p className='cursor-pointer text-xs'>Upload</p>
-                    <p className='cursor-pointer text-xs'>Retrieve</p>
+                    <p className='cursor-pointer text-[13px]'>Upload</p>
+                    <p className='cursor-pointer text-[13px]'>All receipts</p>
                 </div>
             )}
           </div>
@@ -123,15 +131,19 @@ const MobileDashboardLayout = ({children}) => {
             </div>
             {showFilesContent && (
                 <div className='text-white flex flex-col gap-3 mt-3'>
-                    <p className='cursor-pointer text-xs'>School Fees</p>
-                    <p className='cursor-pointer text-xs'>Project</p>
-                    <p className='cursor-pointer text-xs'>Clearance</p>
+                    <p className='cursor-pointer text-[13px]'>School Fees</p>
+                    <p className='cursor-pointer text-[13px]'>Project</p>
+                    <p className='cursor-pointer text-[13px]'>Clearance</p>
                 </div>
             )}
           </div>
           <div className='flex items-center justify-center gap-4 cursor-pointer'>
               <img src={settings} alt="" className='w-6 h-6' />
               <p className='text-xl text-white'>Settings</p>
+          </div>
+          <div className='flex items-center justify-center gap-4 cursor-pointer'>
+            <img src={logoutIcon} alt="" className='w-6 h-6' />
+            <p className='text-xl text-white'>Logout</p>
           </div>
         </div>
       </div>
