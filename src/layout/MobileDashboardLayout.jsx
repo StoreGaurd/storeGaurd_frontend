@@ -107,7 +107,7 @@ const MobileDashboardLayout = ({children}) => {
           <Link to="/dashboard" onClick={()=>setIsNavbarOpen(false)}>
             <div className='flex items-center justify-center gap-4 cursor-pointer'>
               <img src={overview} alt="" className='w-6 h-6' />
-              <p className='text-xl text-[#FF8D22]'>Overview</p>
+              <p className='text-xl text-white'>Overview</p>
             </div>
           </Link>
           <div className='flex flex-col items-center justify-center'>
@@ -118,8 +118,8 @@ const MobileDashboardLayout = ({children}) => {
             </div>
             {showRecieptContent && (
                 <div className='text-white flex flex-col gap-3 mt-3'>
-                    <p className='cursor-pointer text-[13px]'>Upload</p>
-                    <p className='cursor-pointer text-[13px]'>All receipts</p>
+                    <p className='cursor-pointer text-[13px]'><Link to="/dashboard/upload_reciept">Upload</Link></p>
+                    <p className='cursor-pointer text-[13px]'><Link to="/dashboard/all_reciept">All receipts</Link></p>
                 </div>
             )}
           </div>

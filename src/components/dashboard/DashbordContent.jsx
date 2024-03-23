@@ -4,7 +4,7 @@ import viewIcon from "../../utils/icons/view.png"
 
 const DashbordContent = () => {
   return (
-    <div className="bg-[#F9F9F9F9] w-full h-full pt-8 px-4 overflow-y-auto no-scrollbar">
+    <div className="bg-[#F9F9F9F9] w-full h-full pt-8 px-4 overflow-scroll">
     <p className="text-black font-extrabold text-2xl md:text-3xl mb-4">Hello Mary Daniels!</p>
     <p className="text-[15px] text-black">18/03/2024</p>
     <div>
